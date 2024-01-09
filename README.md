@@ -1,23 +1,22 @@
-# Learning Hierarchy-Enhanced POI Category Representations Using Disentangled Mobility Sequences
+# Urban Region Embedding with Adaptive Region Correlation Discovery
 
-These are the source codes for the **SD-CEM** model and its corresponding data.
+These are the source codes for the **READ** model and its corresponding data.
 
 - Data
-  1. dataset\data\category.csv — POI category data, including category ID, category name, and the hierarchical parent nodes.
-  2. dataset\data\CheckinCategoryIDSequenceJP.csv — A dataset of the JP mobility sequences as input, containing 10,336 sequences of POI categories and encompassing 330 distinct categories.
-  3. dataset\data\CheckinCategoryIDSequenceUS.csv — A dataset of the US mobility sequences as input, containing 21,898 sequences of POI categories and encompassing 396 distinct categories.
+  
+  The files in the data/ folder are the data used to train the **READ** model and perform downstream tasks.
   
 - Code
-  1. main.py — A file to run the SD-CEM model. Note that there are some hyperparameters that can be set in this file.
-  2. trainer/ — The files in this folder contain the details of model training and optimization.
-  3. model/ — These are the codes for **SD-CEM**, including the implementation details of all components of the model.
   
-- Category Representations
+  1. READ.py is the code of the main structure of the **READ** model.
+  2. layers.py is the code including the implementation details of all components of **READ**.
+  3. train.py is executed to train the model.
+  4. tasks.py is the code for three downstream tasks, containing region crime prediction, region popularity prediction, and land usage clustering.
+  5. validation.py can get the results on different downstream tasks.
+  
+  
+  
+- Urban Region Embedding
 
-  embeddings/ — These are the trained representations of POI categories. The named format is [SD-CEM#dataset#embedding size.csv], and the data format is [category name, category representation].
-
-- Tasks
-  1. tasks\matchrate.py — A file to calculate the match rate based on the category representations.
-  2. tasks\mobility.py — A file to calculate accuracy and MRR on the mobility task.
-  3. tasks\recommendation.py — A file to calculate precision and recall on the POI recommendation task.
+  save_emb/ — These are the learned embeddings of urban regions. Their data form is a 270x128 matrix,  where 270 is the number of regions and 128 is the dimension of the region embedding.
 
