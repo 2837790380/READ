@@ -3,7 +3,7 @@ from tasks import predict_crime, lu_classify, predict_popus
 import pickle
 import torch
 from utils import get_adj, get_mob, setup_seed
-setup_seed(121)
+# setup_seed()
 
 if __name__ == '__main__':
     # set some parameters
