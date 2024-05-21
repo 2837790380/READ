@@ -42,11 +42,11 @@ if __name__ == '__main__':
         if (epoch+1) % 100 == 0:
             print("Train loss {:.3f} at epoch {}.".format(loss.item(), epoch+1))
 
-    emb = model.region_emb.detach().cpu().numpy().squeeze()
-    pickle.dump(emb, open(f'./save_emb/emb.pickle', 'wb'))
-    predict_crime(emb)
-    predict_popus(emb)
-    lu_classify(emb)
+            emb = model.region_emb.detach().cpu().numpy().squeeze()
+            # pickle.dump(emb, open(f'./save_emb/emb.pickle', 'wb'))
+            predict_crime(emb)
+            predict_popus(emb)
+            lu_classify(emb)
 
 
 

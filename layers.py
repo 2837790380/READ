@@ -82,21 +82,8 @@ class AdaptiveWeightedMultiGraphConstruction(nn.Module):
         adj_j = torch.repeat_interleave(features.unsqueeze(0), repeats=region_num, dim=0).view(region_num, -1,
                                                                                                feature_size)
 
-        # ----- cosine correlation
         adj_dynamic = torch.cosine_similarity(adj_i, adj_j, dim=-1)
-        adj_out = adj_dynamic
-
-        # ----- mlp-based correlation
-        # adj_ = torch.cat([adj_i, adj_j], dim=-1)
-        # adj_dynamic = self.adj_layer_(adj_).squeeze()
-        # adj_out = adj_dynamic
-
-        # ----- attention_based correlation
-        # adj_ = torch.stack([adj_i, adj_j], dim=-2)
-        # adj_ = self.adj_attn_layer(adj_)
-        # beta = torch.nn.functional.softmax(adj_, dim=-2)
-        # adj_dynamic = beta[:, :, 0].squeeze(-1)
-        # adj_out = adj_dynamic
+        adj_out = torch.clamp(adj_dynamic, 0)
 
         return adj_out
 
