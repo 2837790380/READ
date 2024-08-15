@@ -18,5 +18,5 @@ These are the source codes for the **READ** model and its corresponding data.
   
 - Urban Region Embedding
 
-  save_emb/ — These are the learned embeddings of urban regions. Their data form is a 270x128 matrix,  where 270 is the number of regions and 128 is the dimension of the region embedding.
+  save_emb/ — These are the learned embeddings of urban regions. Their data form is a 270x128 matrix,  where 270 is the number of regions and 128 is the dimension size of the region embedding.
 
